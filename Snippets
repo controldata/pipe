@@ -1,0 +1,9 @@
+#!/bin/bash
+Server Installation DateTime:   ls -ld /var/log/installer | cut -c29-40
+Uptime:                         echo "$(uptime -p), Since $(uptime -s)"
+
+ElasticSearch:
+curator delete indices --all-indices
+   - name: display number of items
+     debug:
+       msg: "estimated number of incides deleted: {{deleted_items.stdout_lines | length - 6 }}"
